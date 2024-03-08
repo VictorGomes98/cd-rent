@@ -1,1 +1,20 @@
+server:
+  error:
+    include-stacktrace: always
 
+spring:
+  datasource:
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://localhost:1433;useSSL=false;databaseName=CDRENT;encrypt=false
+    username: admin
+    password: admin
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        connection:
+          characterEncoding: UTF-8
+          CharSet: UTF 8
+          useUnicode: true
+    hibernate:
+      ddl-auto: update
