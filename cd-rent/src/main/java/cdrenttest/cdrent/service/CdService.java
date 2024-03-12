@@ -21,7 +21,14 @@ public class CdService {
     }
 
     public List<Cd> searchByTitle(String title) {
-        return cdRepository.searchCdByTitle(title)
-                .orElseThrow(() -> new BadRequestException("None CD's with " + title + " found"));
+        return cdRepository.searchCdByTitle(title).orElseThrow(
+                () -> new BadRequestException("None CD's with " + title + " found")
+        );
+    }
+
+    public List<Cd> findCdByBand(String bandName) {
+        return cdRepository.findCdByBandName(bandName).orElseThrow(
+                () -> new BadRequestException("Any band with " + bandName + " found")
+        );
     }
 }

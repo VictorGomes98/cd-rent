@@ -1,9 +1,6 @@
 package cdrenttest.cdrent.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -20,6 +17,8 @@ public class Cd {
     private int year;
     private String bandName;
     private String recordName;
-    private Set<Music> musics;
     private String albumImgUri;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Set<Music> musics;
 }

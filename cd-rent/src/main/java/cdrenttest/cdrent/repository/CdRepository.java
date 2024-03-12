@@ -11,7 +11,12 @@ public interface CdRepository extends JpaRepository<Cd, Long> {
     public Optional<Cd> findCdByTitle(String title);
 
     @Query("""
-                SELECT TOP 30 c FROM CDRENT c WHERE c.TITLE LIKE '% :title %'
+            SELECT TOP 30 c FROM CDRENT c WHERE c.TITLE LIKE '% :title %'
             """)
     public Optional<List<Cd>> searchCdByTitle(String title);
+
+    @Query("""
+            SELECT c FROM CDRENT c WHERE c.BANDNAME = :bandName
+            """)
+    public Optional<List<Cd>> findCdByBandName(String bandName);
 }
