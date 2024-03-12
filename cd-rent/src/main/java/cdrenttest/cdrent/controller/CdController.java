@@ -24,7 +24,7 @@ public class CdController {
 
     @GetMapping("/find/{title}")
     public ResponseEntity<List<Cd>> searchByTitle(@PathVariable String title) {
-        return ResponseEntity.ok(cdService.searchByTitle(title));
+        return ResponseEntity.ok(cdService.findByTitle(title));
     }
 
     @GetMapping("find/band/{band}")

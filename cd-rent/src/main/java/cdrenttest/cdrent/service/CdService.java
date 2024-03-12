@@ -20,7 +20,7 @@ public class CdService {
                 );
     }
 
-    public List<Cd> searchByTitle(String title) {
+    public List<Cd> findByTitle(String title) {
         return cdRepository.searchCdByTitle(title).orElseThrow(
                 () -> new BadRequestException("None CD's with " + title + " found")
         );
